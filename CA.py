@@ -14,6 +14,7 @@ def convertToBinary(string):
 	return ans
 
 def convertNumberToRule(number):
+	'''This turns a number from 0 to 256 to a list of 0's and 1's.'''
 	ans=[0,0,0,0,0,0,0,0]
 	for i in range(8):
 		digit=number%2
