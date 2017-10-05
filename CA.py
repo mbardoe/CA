@@ -23,6 +23,7 @@ def convertNumberToRule(number):
 	return ans
 
 def convertThreeToDecimal(threelist):
+	''' You suck bardoe'''
 	return 4*threelist[0]+2*threelist[1]+threelist[2]
 
 def applyRule(number, binaryList):
