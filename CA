@@ -23,8 +23,21 @@ def convertNumberToRule(number):
 	return ans
 
 def convertThreeToDecimal(threelist):
+	''' You suck bardoe'''
 	return 4*threelist[0]+2*threelist[1]+threelist[2]
 
 def applyRule(number, binaryList):
-	number = 
+	answer_str = format(rule, '#010b') [2:] #github.com
 
+	answer = {
+        (2, 2, 2): int(rule_str[0]) + 1,
+        (2, 2, 1): int(rule_str[1]) + 1,
+        (2, 1, 2): int(rule_str[2]) + 1,
+        (2, 1, 1): int(rule_str[3]) + 1,
+        (1, 2, 2): int(rule_str[4]) + 1,
+        (1, 2, 1): int(rule_str[5]) + 1,
+        (1, 1, 2): int(rule_str[6]) + 1,
+        (1, 1, 1): int(rule_str[7]) + 1
+    }
+
+	return answer
