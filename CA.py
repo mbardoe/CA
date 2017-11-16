@@ -1,5 +1,6 @@
-import matplotlib as plt
+#import matplotlib.pyplot as plt
 import numpy as np
+from time import sleep
 # import pyglet
 
 # class Window(pyglet.window.window):
@@ -13,7 +14,11 @@ class CA(object):
         self.rule=self.convertNumberToRule(self.number)
         self.memory=memory
         self.state=np.array([0,0]+self.convertToBinary(DNA))
-        self.fig=plt.figure()
+        #plt.ion()
+        #self.fig=plt.figure(1)
+        self.setup_grid()
+
+        #self.setup_graphics()
 
     def state(self, state):
         self.state=state
@@ -22,22 +27,33 @@ class CA(object):
 
         self.axes=self.fig.add_subplot(111)
 
+
     def display_plot(self):
         plt.draw()
 
+    def update_graphics(self):
+        self.axes.pcolor(self.grid, cmap='binary')
+
     def setup_grid(self):
-        self.grid=np.zeros(self.memory, len(self.state))
+        self.grid=np.zeros((self.memory, len(self.state)))
         self.grid[0]=self.state
         self.gen=0
 
     def update_grid(self, newstate):
-        if self.gen<self.memory:
+        if self.gen+1<self.memory:
             self.gen+=1
             self.grid[self.gen]=newstate
         else:
             self.gen+=1
             self.grid[0:self.memory-1]=self.grid[1:]
             self.grid[self.memory-1]=newstate
+
+    def run(self):
+
+        self.applyRule()
+        #self.display_plot()
+        sleep(.01)
+
 
 
 
@@ -90,14 +106,14 @@ class CA(object):
             rulenumber=self.convertThreeToDecimal(segment)
             #print(x,segment,rule[rulenumber])
             ans.append(self.rule[7-rulenumber])
-        self.state=ans
+        self.state=ans+[0,0]
         self.update_grid(self.state)
         return self.state
 
 
 def main():
-    pass
-
+    ca=CA(120, "ACTGTCATTTAA")
+    ca.run()
 main()
 
 
