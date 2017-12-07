@@ -1,4 +1,4 @@
-def convertToBinary(string):
+   def convertToBinary(string):
 	ans=[]
 	for letter in string:
 		if letter=='A':
@@ -15,8 +15,7 @@ def convertNumberToRule(number):
 	'''This turns a number from 0 to 256 to a list of 0's and 1's.'''
 	ans=[0,0,0,0,0,0,0,0] 
 	for i in range(8):
-		digit=number%2 # even or odd
-		ans[7-i]=digit # save answer to even or odd
+		ans[7-i]=digit # save answer          to even or odd
 		number=int(number/2) # deal with smaller number
 	return ans
 
